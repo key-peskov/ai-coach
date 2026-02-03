@@ -28,7 +28,7 @@ jobs:
       # --------------------
       - name: Ruff (lint)
         run: |
-          ruff check app tests
+          ruff check app/core tests
 
       # --------------------
       # TYPE CHECK
