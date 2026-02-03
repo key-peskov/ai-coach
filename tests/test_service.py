@@ -11,5 +11,5 @@ def test_process_day_overload(sample_day, mocker):
     result = process_day(sample_day)
     state = result["state"]
 
-    assert state.overload is True
-    assert len(state.overload_reasons) > 0
+    assert state["overload"] is True
+    assert len(state["overload_reasons"]) > 0
