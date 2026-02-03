@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 
-from app.api import checkin, analysis, explain
+from app.api import analysis, checkin, explain
 from app.db.db import init_db
 
 app = FastAPI(title="AI Coach")
