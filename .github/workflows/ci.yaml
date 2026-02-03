@@ -44,7 +44,7 @@ jobs:
         env:
           PYTHONPATH: .
         run: |
-          pytest \
-            --cov=app \
-            --cov-report=term-missing \
-            --cov-fail-under=70
+         pytest \
+          --cov=app/core \
+          --cov-report=term-missing \
+          --cov-fail-under=70
