@@ -1,5 +1,4 @@
 from fastapi import APIRouter
-
 from app.agent.explainer import explain
 from app.db.repository import get_last_day
 
