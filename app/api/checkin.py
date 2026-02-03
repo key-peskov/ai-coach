@@ -1,7 +1,8 @@
 from fastapi import APIRouter, Depends, HTTPException
+
+from app.api.dependencies import rate_limit_dep
 from app.core.models import DayInput
 from app.core.service import process_day
-from app.api.dependencies import rate_limit_dep
 
 router = APIRouter()
 

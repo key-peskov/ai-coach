@@ -1,4 +1,5 @@
 from fastapi import APIRouter
+
 from app.db.repository import get_last_day
 
 router = APIRouter()

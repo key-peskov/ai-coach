@@ -1,5 +1,6 @@
 from fastapi import FastAPI
-from app.api import checkin, analysis
+
+from app.api import analysis, checkin
 
 app = FastAPI(title="AI Coach")
 

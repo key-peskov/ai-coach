@@ -1,5 +1,6 @@
 from app.core.overload import detect_overload
 
+
 def test_overload_hrv_only():
     reasons = detect_overload(False, 0, -0.18)
     assert "HRV ниже baseline > 15%" in reasons

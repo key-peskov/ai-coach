@@ -1,5 +1,7 @@
-from fastapi import Request, HTTPException
+from fastapi import HTTPException, Request
+
 from app.api.rate_limit import rate_limit
+
 
 def rate_limit_dep(request: Request):
     try:

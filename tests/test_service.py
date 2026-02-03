@@ -1,5 +1,6 @@
 from app.core.service import process_day
 
+
 def test_process_day_overload(sample_day, mocker):
     mocker.patch(
         "app.db.repository.get_recent_hrv",

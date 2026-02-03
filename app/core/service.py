@@ -1,8 +1,9 @@
 from app.core import analyzer, baseline, overload
-from app.db.repository import get_recent_hrv, save_day
-from app.core.safety import hard_stop
-from app.core.recommendations import RECOMMENDATIONS
 from app.core.intensity_mapper import choose_level
+from app.core.recommendations import RECOMMENDATIONS
+from app.core.safety import hard_stop
+from app.db.repository import get_recent_hrv, save_day
+
 
 def process_day(day):
     metrics = analyzer.analyze(day)

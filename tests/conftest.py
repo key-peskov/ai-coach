@@ -1,6 +1,9 @@
-import pytest
 from datetime import date
+
+import pytest
+
 from app.core.models import DayInput, Training
+
 
 @pytest.fixture
 def sample_day():

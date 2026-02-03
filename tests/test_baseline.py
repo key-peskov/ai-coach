@@ -1,5 +1,6 @@
 from app.core.baseline import compute_baseline, deviation
 
+
 def test_baseline_not_enough_data():
     assert compute_baseline([30, 31, 32]) is None
 

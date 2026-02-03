@@ -1,5 +1,7 @@
 import json
+
 from app.db.db import get_conn
+
 
 def save_day(state):
     with get_conn() as conn:
