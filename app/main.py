@@ -17,3 +17,7 @@ app.include_router(explain.router, prefix="/recommendations", tags=["recommendat
 @app.get("/")
 def root():
     return {"status": "ok"}
+
+@app.get("/health")
+def health():
+    return {"status": "ok"}
