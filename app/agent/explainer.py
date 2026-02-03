@@ -1,8 +1,11 @@
+# app/agent/explainer.py
 import os
+from typing import Optional
 
 from openai import OpenAI
 
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+api_key = os.getenv("OPENAI_API_KEY")
+client: Optional[OpenAI] = OpenAI(api_key=api_key) if api_key else None
 
 SYSTEM_PROMPT = """
 Ты персональный тренер.
@@ -11,22 +14,18 @@ SYSTEM_PROMPT = """
 """
 
 def explain(state: dict, recommendation: dict) -> str:
-    prompt = f"""
-Состояние спортсмена:
-{state}
+    if not client:
+        return "LLM отключён: отсутствует API key"
 
-Рекомендация:
-{recommendation}
-
-Кратко объясни решение (3–5 строк).
-"""
-
-    resp = client.chat.completions.create(
-        model="gpt-4.1-mini",
-        messages=[
-            {"role": "system", "content": SYSTEM_PROMPT},
-            {"role": "user", "content": prompt},
-        ],
-        temperature=0.4,
-    )
-    return resp.choices[0].message.content
+    try:
+        resp = client.chat.completions.create(
+            model="gpt-4.1-mini",
+            messages=[
+                {"role": "system", "content": SYSTEM_PROMPT},
+                {"role": "user", "content": f"{state}\n{recommendation}"},
+            ],
+            temperature=0.4,
+        )
+        return resp.choices[0].message.content or "Пояснение недоступно"
+    except Exception:
+        return "Пояснение недоступно из-за ошибки LLM"
